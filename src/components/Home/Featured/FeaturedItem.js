@@ -13,7 +13,7 @@ const FeaturedItem = (props) => {
 
   useEffect(() => {
     sendRequest({
-      url: `/hotels/city?city=${props.name}`,
+      url: `https://booking-server-6rik.onrender.com/hotels/city?city=${props.name}`,
     })
       .then((result) =>
         setCity({

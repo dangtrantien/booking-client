@@ -44,7 +44,7 @@ const BookingForm = (props) => {
 
       // Render các room còn trống sau khi chọn ngày
       sendRequest({
-        url: `/hotels/empty-room?hotelId=${hotelId}&dateStart=${item.selection.startDate}`,
+        url: `https://booking-server-6rik.onrender.com/hotels/empty-room?hotelId=${hotelId}&dateStart=${item.selection.startDate}`,
       })
         .then((result) => {
           if (result.error) {
@@ -113,7 +113,7 @@ const BookingForm = (props) => {
 
     // Update user information
     sendRequest({
-      url: '/user',
+      url: 'https://booking-server-6rik.onrender.com/user',
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ const BookingForm = (props) => {
 
     // Booking hotel room
     sendRequest({
-      url: '/hotels/transaction',
+      url: 'https://booking-server-6rik.onrender.com/hotels/transaction',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

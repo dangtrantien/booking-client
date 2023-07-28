@@ -14,7 +14,7 @@ const HotelList = () => {
 
   useEffect(() => {
     sendRequest({
-      url: '/hotels/top-rating',
+      url: 'https://booking-server-6rik.onrender.com/hotels/top-rating',
     })
       .then((result) => {
         if (result.error) {

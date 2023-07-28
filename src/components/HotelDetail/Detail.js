@@ -52,7 +52,7 @@ const Detail = () => {
 
   useEffect(() => {
     sendRequest({
-      url: `/hotels/hotel/${hotelId}`,
+      url: `https://booking-server-6rik.onrender.com/hotels/hotel/${hotelId}`,
     })
       .then((result) => {
         if (result.error) {

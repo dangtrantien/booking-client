@@ -43,7 +43,7 @@ const SearchPopup = () => {
     };
 
     sendRequest({
-      url: '/hotels/search',
+      url: 'https://booking-server-6rik.onrender.com/hotels/search',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

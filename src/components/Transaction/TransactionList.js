@@ -12,7 +12,9 @@ const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    sendRequest({ url: `/hotels/transactions?userId=${userId}` })
+    sendRequest({
+      url: `https://booking-server-6rik.onrender.com/hotels/transactions?userId=${userId}`,
+    })
       .then((result) => {
         if (result.error) {
           return alert(result.message);

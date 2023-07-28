@@ -13,7 +13,7 @@ const PropertyItem = (props) => {
 
   useEffect(() => {
     sendRequest({
-      url: `/hotels/type?type=${props.type}`,
+      url: `https://booking-server-6rik.onrender.com/hotels/type?type=${props.type}`,
     })
       .then((result) =>
         setType({
