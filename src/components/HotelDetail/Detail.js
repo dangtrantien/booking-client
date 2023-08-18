@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Slider from './Slider';
 import useHttp from '../../hooks/use-http';
 import BookingForm from './BookingForm';
+import { host } from '../../store/store';
 
 import styles from './Detail.module.css';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -52,7 +53,7 @@ const Detail = () => {
 
   useEffect(() => {
     sendRequest({
-      url: `https://booking-server-6rik.onrender.com/hotels/hotel/${hotelId}`,
+      url: `${host}/hotels/hotel/${hotelId}`,
     })
       .then((result) => {
         if (result.error) {

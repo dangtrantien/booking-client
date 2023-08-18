@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import useHttp from '../../hooks/use-http';
+import { host } from '../../store/store';
 
 // ==================================================
 
@@ -13,7 +14,7 @@ const TransactionList = () => {
 
   useEffect(() => {
     sendRequest({
-      url: `https://booking-server-6rik.onrender.com/hotels/transactions?userId=${userId}`,
+      url: `${host}/hotels/transactions?userId=${userId}`,
     })
       .then((result) => {
         if (result.error) {

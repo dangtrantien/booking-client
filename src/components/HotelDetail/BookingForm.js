@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 
 import { userActions } from '../../store/user/user-slice';
 import useHttp from '../../hooks/use-http';
+import { host } from '../../store/store';
 
 import styles from './BookingForm.module.css';
 
@@ -44,7 +45,7 @@ const BookingForm = (props) => {
 
       // Render các room còn trống sau khi chọn ngày
       sendRequest({
-        url: `https://booking-server-6rik.onrender.com/hotels/empty-room?hotelId=${hotelId}&dateStart=${item.selection.startDate}`,
+        url: `${host}/hotels/empty-room?hotelId=${hotelId}&dateStart=${item.selection.startDate}`,
       })
         .then((result) => {
           if (result.error) {
@@ -113,7 +114,7 @@ const BookingForm = (props) => {
 
     // Update user information
     sendRequest({
-      url: 'https://booking-server-6rik.onrender.com/user',
+      url: `${host}/user`,
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -123,7 +124,7 @@ const BookingForm = (props) => {
 
     // Booking hotel room
     sendRequest({
-      url: 'https://booking-server-6rik.onrender.com/hotels/transaction',
+      url: `${host}/hotels/transaction`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

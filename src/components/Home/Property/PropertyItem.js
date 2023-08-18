@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import useHttp from '../../../hooks/use-http';
+import { host } from '../../../store/store';
 
 import styles from './PropertyItem.module.css';
 
@@ -13,7 +14,7 @@ const PropertyItem = (props) => {
 
   useEffect(() => {
     sendRequest({
-      url: `https://booking-server-6rik.onrender.com/hotels/type?type=${props.type}`,
+      url: `${host}/hotels/type?type=${props.type}`,
     })
       .then((result) =>
         setType({

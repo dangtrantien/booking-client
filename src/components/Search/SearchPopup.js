@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 
 import useHttp from '../../hooks/use-http';
 import { hotelActions } from '../../store/hotel/hotel-slice';
+import { host } from '../../store/store';
 
 import styles from './SearchPopup.module.css';
 
@@ -43,7 +44,7 @@ const SearchPopup = () => {
     };
 
     sendRequest({
-      url: 'https://booking-server-6rik.onrender.com/hotels/search',
+      url: `${host}/hotels/search`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

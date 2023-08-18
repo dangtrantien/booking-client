@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useHttp from '../../../hooks/use-http';
+import { host } from '../../../store/store';
 
 import styles from './FeaturedItem.module.css';
 
@@ -13,7 +14,7 @@ const FeaturedItem = (props) => {
 
   useEffect(() => {
     sendRequest({
-      url: `https://booking-server-6rik.onrender.com/hotels/city?city=${props.name}`,
+      url: `${host}/hotels/city?city=${props.name}`,
     })
       .then((result) =>
         setCity({

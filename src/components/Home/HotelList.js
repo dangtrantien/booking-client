@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import useHttp from '../../hooks/use-http';
+import { host } from '../../store/store';
 
 import styles from './HotelList.module.css';
 
@@ -14,7 +15,7 @@ const HotelList = () => {
 
   useEffect(() => {
     sendRequest({
-      url: 'https://booking-server-6rik.onrender.com/hotels/top-rating',
+      url: `${host}/hotels/top-rating`,
     })
       .then((result) => {
         if (result.error) {
