@@ -49,6 +49,7 @@ const BookingForm = (props) => {
       })
         .then((result) => {
           if (result.error) {
+            setRooms([]);
             return alert(result.message);
           }
 
@@ -70,7 +71,6 @@ const BookingForm = (props) => {
 
     // Nếu checked === true thì thêm số phòng và tăng tổng giá tiền
     if (checked) {
-      setRoomNumberList(newRoomNumberList);
       setTotalBill((prev) => prev + roomPrice * bookingDate);
 
       // Nếu checked === false thì xóa số phòng và giảm tổng giá tiền
@@ -79,9 +79,10 @@ const BookingForm = (props) => {
         (r) => r.roomNumber !== roomNumber
       );
 
-      setRoomNumberList(newRoomNumberList);
       setTotalBill((prev) => prev - roomPrice * bookingDate);
     }
+
+    setRoomNumberList(newRoomNumberList);
   };
 
   const selectChangeHandler = (e) => {

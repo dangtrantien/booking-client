@@ -1,13 +1,20 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { DateRange } from 'react-date-range';
 import { format } from 'date-fns';
+
+import useHttp from '../../hooks/use-http';
+import { hotelActions } from '../../store/hotel/hotel-slice';
+import { host } from '../../store/store';
 
 import styles from './Header.module.css';
 
 // ==================================================
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const sendRequest = useHttp();
   const navigate = useNavigate();
 
   const [destination, setDestination] = useState('');
@@ -40,10 +47,34 @@ const Header = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    return navigate('/hotels', {
-      replace: true,
-      state: { destination, dateRange, options },
-    });
+    const searchData = {
+      city: destination,
+      startDate: dateRange[0].startDate,
+      maxPeople: options.adult + options.children,
+      roomCount: options.room,
+    };
+
+    sendRequest({
+      url: `${host}/hotels/search`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: searchData,
+    })
+      .then((result) => {
+        if (result.error) {
+          return alert(result.message);
+        }
+
+        dispatch(hotelActions.replaceHotelState(result));
+
+        return navigate('/hotels', {
+          replace: true,
+          state: { destination, dateRange, options },
+        });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
