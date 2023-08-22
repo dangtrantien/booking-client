@@ -84,6 +84,33 @@ public
   ├─ manifest.json
   └─ robots.txt
 src
+  ├─ asset
+  │   └─ images
+  │       │─ City Image
+  │       │   │─ Da Nang.jpg
+  │       │   │─ Ha Noi.jpg
+  │       │   └─ HCM.jpg
+  │       │─ city_1.webp
+  │       │─ city_2.webp
+  │       │─ city_3.webp
+  │       │─ hotel_1.webp
+  │       │─ hotel_2.jpg
+  │       │─ hotel_3.jpg
+  │       │─ hotel_4.jpg
+  │       │─ hotel_detail_1.jpg
+  │       │─ hotel_detail_2.jpg
+  │       │─ hotel_detail_3.jpg
+  │       │─ hotel_detail_4.jpg
+  │       │─ hotel_detail_5.jpg
+  │       │─ hotel_detail_6.jpg
+  │       │─ hotel_search_1.webp
+  │       │─ hotel_search_2.jpg
+  │       │─ hotel_search_3.jpg
+  │       │─ type_1.webp
+  │       │─ type_2.jpg
+  │       │─ type_3.jpg
+  │       │─ type_4.jpg
+  │       └─ type_5.jpg
   ├─ components
   │   │─ Authentication
   │   │   │─ AuthForm
@@ -170,6 +197,7 @@ package.json
 - public: Folder contains root HTML for the Website.
 - src: Folder contains main code for building the Website:
   - .css & .module.css: File CSS contains code for styling the Website.
+  - images: Folder contains image using in the Website.
   - Authentication: Folder contains file to create structure for the Signin page and the Signup page.
   - Home: Folder contains file to create structure for the Home page.
   - HotelDetail: Folder contains file to create structure for the Hotel-detail page.
