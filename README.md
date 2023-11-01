@@ -71,7 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Link Deploy
 
-This project was deploy here: [https://booking-client-oabm.onrender.com](https://booking-client-oabm.onrender.com)
+This project was deploy here: [https://booking-client-dangtrantien.vercel.app](https://booking-client-dangtrantien.vercel.app)
 
 ### This project has following structures:
 
